@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+backend/app/data/matches/*.json
+backend/recent.zip
+backend/.env
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python virtual environments
+.venv/
+venv/
+env/
+backend/.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environment variables
+.env.*
+!.env.example
+!.env.*.example
+
+# Python build files
+build/
+*.egg-info/
+.eggs/
+
+# ML model checkpoints (avoid accidentally uploading large files)
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Temporary files
+*.tmp
+*.temp
+
+# Uploaded files and generated reports
+uploads/
+temp/
+
+# TypeScript build cache
+*.tsbuildinfo

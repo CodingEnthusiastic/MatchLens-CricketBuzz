@@ -1,0 +1,12 @@
+{"text":"What is the current score and run rate?","label":"MATCH_STATISTICS"}
+{"text":"How many runs are required from the remaining balls?","label":"MATCH_STATISTICS"}
+{"text":"What happened in the last three overs?","label":"MATCH_RECAP"}
+{"text":"Catch me up on the recent wickets and boundaries","label":"MATCH_RECAP"}
+{"text":"Why has the scoring rate dropped?","label":"MOMENTUM_ANALYSIS"}
+{"text":"Where did the momentum change in this innings?","label":"MOMENTUM_ANALYSIS"}
+{"text":"Compare the opening partnership with the current partnership","label":"PLAYER_COMPARISON"}
+{"text":"Compare the two batters' strike rates","label":"PLAYER_COMPARISON"}
+{"text":"Explain why this delivery was called a no-ball","label":"CRICKET_RULES"}
+{"text":"What is the rule for a wide and DRS?","label":"CRICKET_RULES"}
+{"text":"Who is batting and who is bowling?","label":"GENERAL_MATCH_QUERY"}
+{"text":"Tell me about this historical match","label":"GENERAL_MATCH_QUERY"}
