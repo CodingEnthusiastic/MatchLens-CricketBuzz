@@ -30,6 +30,13 @@ class BallEvent(BaseModel):
     commentary: str
 
 
+class StoryItem(BaseModel):
+    kind: Literal["momentum", "wicket", "partnership", "over"]
+    title: str
+    detail: str
+    over_label: str
+    ball_index: int = Field(ge=1)
+
 class Match(BaseModel):
     match_id: str
     tournament: str

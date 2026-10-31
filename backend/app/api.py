@@ -11,6 +11,8 @@ from app.services.match_data import MatchRepository
 from app.services.rag import CricketRetriever
 from app.services.workflow import answer
 from app.services.intent import IntentClassifier
+from app.models import StoryItem
+from app.services.stories import build_match_stories
 
 settings = get_settings()
 repository = MatchRepository(settings.resolved_data_dir)
@@ -114,7 +116,12 @@ def insights(match_id: str, ball_index: int = Query(ge=0)):
     return [f"Scoring at {current.current_run_rate:.2f} runs per over", f"{current.remaining_runs} runs remain in this historical chase"]
 
 
-@router.get("/matches/{match_id}/stories")
-def stories(match_id: str):
+
+@router.get(
+    "/matches/{match_id}/stories",
+    response_model=list[StoryItem],
+)
+
+def stories(match_id: str) -> list[StoryItem]:
     data = get_data(match_id)
-    return [{"kind": "over", "title": "Replay available", "detail": "Explore the historical ball-by-ball sequence.", "over_label": "0.1", "ball_index": 1}]
+    return build_match_stories(data)
