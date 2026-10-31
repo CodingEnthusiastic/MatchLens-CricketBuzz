@@ -1,0 +1,38 @@
+[DOCUMENT: T20_CHASE_DYNAMICS_AND_RRR]
+Title: T20 Run Chase Dynamics, Required Run Rate (RRR) and Win Equations
+Section: Statistical Formulations and Match Phase Analysis
+Source: Cricket Analytics Compendium & MatchLens Core Statistical Engine
+
+1. Required Run Rate (RRR) Formulation:
+- Formula: RRR = (Target Runs - Current Score) / (Remaining Legal Deliveries / 6)
+- Example: If target is 208 and team is 114/2 after 11.2 overs (68 legal balls completed, 52 legal balls remaining):
+  Runs required = 208 - 114 = 94 runs.
+  Remaining overs = 52 / 6 = 8.667 overs.
+  RRR = 94 / 8.667 = 10.85 runs per over.
+- Rate Gap: The difference between Required Run Rate and Current Run Rate (RRR - CRR). A positive rate gap indicates escalating scoreboard pressure requiring acceleration.
+
+2. T20 Innings Phase Breakdown:
+- Phase 1: Powerplay (Overs 1 - 6): Maximum 2 fielders outside 30-yard ring. Optimum phase for boundary accumulation against new ball pace.
+- Phase 2: Middle Overs (Overs 7 - 15): Maximum 5 fielders outside the ring. Primary battleground for controlling run rate via strike rotation (running hard between wickets) and boundary containment through spin and change of pace.
+- Phase 3: Death Overs (Overs 16 - 20): High-variance endgame. Batting teams target 11-14+ runs per over if wickets are in hand. Bowling teams rely on wide yorkers, slower ball bouncers, and boundary protection fields.
+
+3. Wickets in Hand as a Scoring Leverage Multiplier:
+- In T20 chases, wickets in hand dictate the team's risk tolerance. Having 8 wickets in hand at over 11 (e.g., 114/2) allows set batters to absorb 1-2 tight overs or launch an assault in the death overs without fear of an immediate collapse.
+- If wickets drop below 5 before over 15, the chase probability drops precipitously because tailenders have lower boundary percentages (typically <12% boundary rate compared to top-order >20%).
+
+---
+
+[DOCUMENT: WIN_PROBABILITY_AND_MATCH_MOMENTUM]
+Title: T20 Match Momentum, Leverage Indices and Win Probability Factors
+Section: Sports Analytics & Predictive Modelling for Cricket
+Source: Advanced Cricket Modeling & Sports Tech Review
+
+1. Key Drivers of Match Momentum in a T20 Chase:
+- Score vs Par Score: Comparing the chasing team's score at over X against historical par scores for the specific venue (e.g., Rajiv Gandhi International Stadium, Hyderabad).
+- Required Run Rate Acceleration Curve: If RRR rises above 12.00, every dot ball adds exponential pressure. A single 16-run over drops the required rate by up to 1.5 runs/over.
+- Boundary Percentage: High-scoring chases require a minimum of 1 boundary (4 or 6) every 5 to 6 balls (approx. 18-20% boundary frequency).
+- Dot Ball Percentage: Keeping dot balls below 35% in a 200+ chase is essential to maintain parity with the required run rate.
+
+2. Explaining Match Situations to Fans:
+- Why has the scoring rate dropped? Usually caused by: (1) Fall of a key wicket forcing new batter adjustment; (2) Introduction of specialist spin/cutter bowler exploiting pitch grip; (3) Clustering of dot balls (3+ dots in an over).
+- Who controls the partnership? Analyzed via strike rate comparison, percentage of partnership runs scored off the bat, and boundary contribution of each batter.

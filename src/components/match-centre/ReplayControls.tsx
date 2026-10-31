@@ -38,8 +38,8 @@ export function ReplayControls({
   const progress = state.total_deliveries > 0 ? Math.round((state.ball_index / state.total_deliveries) * 100) : 0;
 
   return (
-    <section aria-label="Replay controls" className="rounded-lg border border-border bg-surface p-4 sm:p-5">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+    <section aria-label="Replay controls" className="rounded-lg border border-border bg-surface p-3.5 sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-3">
           <DemoReplayBadge />
           <p className="text-sm text-muted-foreground">

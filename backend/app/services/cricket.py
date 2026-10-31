@@ -56,8 +56,11 @@ def _batter_lines(events: list[BallEvent], names: list[str], striker: str) -> tu
 
 
 def _current_pair(events: list[BallEvent], batting_order: list[str]) -> tuple[str, str]:
+    """Return the two current batters. Handles end-of-match (all-out) gracefully."""
     if not events:
-        return batting_order[0], batting_order[1]
+        first = batting_order[0] if len(batting_order) > 0 else "Unknown"
+        second = batting_order[1] if len(batting_order) > 1 else ""
+        return first, second
     dismissed = {event.wicket.batter for event in events if event.wicket}
     last = events[-1]
     candidates: list[str] = []
@@ -69,6 +72,12 @@ def _current_pair(events: list[BallEvent], batting_order: list[str]) -> tuple[st
             candidates.append(name)
         if len(candidates) == 2:
             break
+    # All-out or final ball: fewer than 2 active batters remain
+    if len(candidates) == 0:
+        candidates = [last.striker, last.non_striker]
+    elif len(candidates) == 1:
+        other = last.non_striker if candidates[0] == last.striker else last.striker
+        candidates.append(other)
     return candidates[0], candidates[1]
 
 
@@ -96,19 +105,26 @@ def state_at(data: ReplayData, ball_index: int) -> MatchState:
     partnership_events = events[last_wicket_position + 1:]
     partnership_runs = sum(event.total_runs for event in partnership_events)
     partnership_balls = sum(event.is_legal for event in partnership_events)
+    is_finished = (
+        (index == len(data.deliveries) and len(data.deliveries) > 0)
+        or wickets >= 10
+        or (data.target > 0 and score >= data.target)
+        or (data.balls_per_innings > 0 and legal >= data.balls_per_innings)
+    )
+    rrr = None if (is_finished or remaining_balls == 0) else round(remaining_runs * 6 / remaining_balls, 2)
     return MatchState(
         match_id=data.match_id, ball_index=index, total_deliveries=len(data.deliveries),
         innings=2, batting_team=data.batting_team, bowling_team=data.bowling_team,
         score=score, wickets=wickets, overs=overs_label(legal), legal_balls=legal,
         current_run_rate=run_rate(score, legal),
-        required_run_rate=round(remaining_runs * 6 / remaining_balls, 2) if remaining_balls else None,
+        required_run_rate=rrr,
         target=data.target, remaining_runs=remaining_runs, remaining_balls=remaining_balls,
         batting_pair=pair, current_bowler=BowlerLine(
             name=current_bowler, overs=overs_label(bowler_legal), runs=bowler_runs,
             wickets=bowler_wickets, economy=run_rate(bowler_runs, bowler_legal),
         ),
         partnership=Partnership(runs=partnership_runs, balls=partnership_balls, batters=pair_names),
-        recent_events=events[-6:], last_ball=current, result=data.result if index == len(data.deliveries) else None,
+        recent_events=events[-6:], last_ball=current, result=data.result if is_finished else None,
     )
 
 

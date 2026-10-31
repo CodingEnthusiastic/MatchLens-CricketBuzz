@@ -78,12 +78,32 @@ def parse_cricsheet(payload: dict, match_id: str = "cricsheet-match") -> ReplayD
                 "commentary": f"{runs['total']} run(s)",
             })
     from app.models import BallEvent
+
+    outcome = info.get("outcome", {})
+    winner = outcome.get("winner")
+    by_data = outcome.get("by", {})
+    if winner:
+        if "runs" in by_data:
+            r = by_data["runs"]
+            result_str = f"{winner} won by {r} run{'s' if r > 1 else ''}"
+        elif "wickets" in by_data:
+            w = by_data["wickets"]
+            result_str = f"{winner} won by {w} wicket{'s' if w > 1 else ''}"
+        else:
+            result_str = f"{winner} won"
+    elif outcome.get("result") == "tie":
+        result_str = "Match tied"
+    elif outcome.get("result") == "no result":
+        result_str = "No result"
+    else:
+        result_str = "Match completed"
+
     return ReplayData(
         match_id=match_id,
         batting_team=innings["team"], bowling_team=next(team for team in teams if team != innings["team"]),
         target=target, deliveries=[BallEvent.model_validate(item) for item in deliveries],
         batting_order=list(dict.fromkeys([d.striker for d in [BallEvent.model_validate(item) for item in deliveries]])),
-        result="Historical replay complete",
+        result=result_str,
         balls_per_innings=int(info.get("overs", 20)) * int(info.get("balls_per_over", 6)),
     )
 

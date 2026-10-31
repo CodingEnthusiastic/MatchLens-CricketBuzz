@@ -82,13 +82,16 @@ export function MatchEvidencePanel({
               </Row>
               <Row label="Rule references">
                 {response && response.citations.length > 0 ? (
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {response.citations.map((citation) => (
-                      <li key={citation.title}>{citation.title}</li>
+                      <li key={citation.title} className="rounded border border-border/60 bg-background/50 px-2 py-1 text-xs">
+                        <span className="font-medium text-foreground">{citation.title}</span>
+                        <span className="block text-[10px] text-sky">{citation.source}</span>
+                      </li>
                     ))}
                   </ul>
                 ) : (
-                  <span className="text-muted-foreground">None supplied. Demo answers do not cite external rules.</span>
+                  <span className="text-muted-foreground text-xs">No specific rule citations required for this query.</span>
                 )}
               </Row>
               <Row label="Last ball processed">

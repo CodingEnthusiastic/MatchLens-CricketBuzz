@@ -1,0 +1,47 @@
+[DOCUMENT: LAW_36_LBW_AND_DRS]
+Title: MCC Law 36 (Leg Before Wicket) and Decision Review System (DRS) Protocol
+Section: Law 36 - Dismissals and DRS Protocol
+Source: Official Laws of Cricket (MCC) & ICC Standard Playing Conditions
+
+Under MCC Law 36, a batter is Out LBW if:
+1. The ball is not a No Ball.
+2. The ball pitches in line between wicket and wicket, or pitches on the off side of the striker's wicket (a ball pitching on the leg side can NEVER result in an LBW dismissal).
+3. The ball touches any part of the striker's person before touching the bat or the hand holding the bat.
+4. The point of first impact with the striker's person is in line between wicket and wicket, UNLESS the striker made no genuine attempt to play the ball with the bat, in which case the impact can be outside the off stump.
+5. The ball would have gone on to hit the striker's stumps.
+
+DRS (Decision Review System) Protocol for LBW:
+- The fielding captain or dismissed batter has 15 seconds from the completion of the ball to signal DRS (a 'T' sign).
+- The TV umpire checks: (a) Fair delivery / No-ball check via front foot cameras; (b) Ultra-Edge / Snicko to confirm absence of bat or glove contact; (c) Ball Tracking technology (Hawk-Eye / Virtual Eye).
+- Three zones are evaluated in Ball Tracking: Pitching (In Line / Outside Off / Outside Leg), Impact (In Line / Umpire's Call / Outside Off), and Wickets Hitting (Hitting / Umpire's Call / Missing).
+- "Umpire's Call": If the technology shows that more than 50% of the ball was not conclusively in line or hitting the stumps, the on-field umpire's original decision stands, and the reviewing team retains their review.
+
+---
+
+[DOCUMENT: LAW_21_NO_BALL_AND_FREE_HIT]
+Title: MCC Law 21 (No Ball) and T20 Free Hit Playing Condition
+Section: Law 21 - Unfair Deliveries and Free Hits
+Source: ICC Men's T20 International Playing Conditions Clause 21.19
+
+Law 21 definitions:
+1. Front foot No Ball: The bowler's front foot must land with some part of the foot, whether grounded or raised, behind the popping crease.
+2. Waist-high full toss (Beamer): Any delivery, other than a slow-paced delivery, that passes or would have passed on the full above waist height of the striker standing upright at the popping crease is unfair and called a No Ball immediately.
+3. Field restriction breach: More than 5 fielders on the leg side, or failure to meet 30-yard circle field restrictions at the instant of delivery.
+
+The Free Hit in T20 Cricket:
+- For any No Ball called in a T20 match, the delivery following a No Ball shall be a Free Hit for whichever batter is facing it.
+- If the delivery for the Free Hit is not a legal delivery (e.g., another No Ball or a Wide), then the next delivery becomes a Free Hit for whichever batter is facing it.
+- Dismissals on a Free Hit: The striker CANNOT be dismissed by any mode of dismissal that credits the bowler. A batter can only be dismissed via: (1) Run Out; (2) Obstructing the Field; (3) Hitting the Ball Twice.
+- Field changes for Free Hit: Field changes are NOT permitted for the Free Hit delivery unless there is a change of striker (the batters crossed ends on the No Ball), or the No Ball was called due to a fielding restriction breach.
+
+---
+
+[DOCUMENT: LAW_22_WIDE_BALL]
+Title: MCC Law 22 (Wide Ball) in Limited Overs Cricket
+Section: Law 22 - Delivery Passing Wide of Striker
+Source: ICC T20 Playing Conditions & MCC Law 22
+
+1. If the bowler bowls a ball, not being a No Ball, the umpire shall call and signal Wide ball if, in the umpire's opinion, the ball passes wide of where the striker is standing and also would have passed wide of the striker standing in a normal guard position.
+2. Leg-side Wide: In limited overs and T20 cricket, any ball passing behind the batter's legs down the leg side (down the leg stump line) is strictly judged as a Wide ball, unless the batter moves across to the off side and brings the ball within their reachable arc.
+3. Penalty: One run is scored as a Wide penalty and added to the batting team's extras. The ball does not count as one of the six legal balls in the over and must be re-bowled.
+4. Dismissals on a Wide: A batter can be stumped, run out, hit wicket, or out obstructing the field off a Wide delivery. They cannot be bowled, caught, or LBW.

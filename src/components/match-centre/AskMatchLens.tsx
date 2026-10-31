@@ -8,11 +8,12 @@ import { Input } from '../ui/input';
 import { ChatAnswer } from './ChatAnswer';
 
 const SUGGESTED_QUESTIONS = [
-  'Why has the scoring rate dropped?',
-  'What happened in the last three overs?',
-  'Who is controlling this partnership?',
-  'Explain the current required run rate.',
-  'What does this umpiring decision mean?',
+  'What is the probability chance that RCB may win this match and why?',
+  'Explain the current required run rate and chase equation.',
+  'What happens if a no ball is bowled and what can the batter do on a free hit?',
+  'Why has the scoring rate dropped in recent overs?',
+  'Who is controlling this partnership and at what strike rate?',
+  'How does the LBW DRS rule apply if the ball pitches outside leg stump?',
 ];
 
 const MAX_QUESTION_LENGTH = 300;

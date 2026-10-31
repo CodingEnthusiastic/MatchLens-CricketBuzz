@@ -15,6 +15,14 @@ _requests: dict[str, deque[float]] = defaultdict(deque)
 _window_seconds = 60
 _max_ai_requests = 30
 
+_allowed_origins = list({
+    settings.frontend_origin,
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+})
+
 
 @app.middleware("http")
 async def protect_api(request: Request, call_next):
@@ -35,9 +43,26 @@ async def protect_api(request: Request, call_next):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_origin],
+    allow_origins=_allowed_origins,
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(Exception)
+async def _global_exception_handler(request: Request, exc: Exception):
+    """Return CORS headers even on unhandled 500 errors so the browser doesn't show a CORS failure."""
+    origin = request.headers.get("origin", "")
+    cors_origin = origin if origin in _allowed_origins else (_allowed_origins[0] if _allowed_origins else "*")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"{type(exc).__name__}: {exc}"},
+        headers={
+            "Access-Control-Allow-Origin": cors_origin,
+            "Access-Control-Allow-Credentials": "true",
+        },
+    )
+
+
 app.include_router(router)
