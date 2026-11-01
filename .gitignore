@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 .env
-backend/app/data/matches/*.json
 backend/recent.zip
 backend/.env
 # Editor directories and files
